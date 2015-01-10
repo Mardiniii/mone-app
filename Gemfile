@@ -14,6 +14,8 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'annotate', '~> 2.6.5'
 gem 'roadie', '~> 2.4'
+gem "font-awesome-rails"
+gem 'gravatar-ultimate'
 
 group :development do
 	gem 'byebug'
@@ -23,7 +25,7 @@ group :development do
 	gem 'guard'
 end
 
-group :production do 
+group :production do
 	gem 'pg'
 	gem 'rails_12factor'
 end
