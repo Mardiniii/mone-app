@@ -55,12 +55,12 @@
 
       <div class="field form-group">
         <%= f.label :ciudad %>
-        <%= collection_select(:user, :city_id, State.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
+        <%= collection_select(:user, :city_id, City.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
       </div>
 
       <div class="field form-group">
         <%= f.label :estado %>
-        <%= collection_select(:user, :state_id, City.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
+        <%= collection_select(:user, :state_id, State.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
       </div>
 
       <div class="actions form-group text-center">
