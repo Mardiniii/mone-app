@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110012905) do
+ActiveRecord::Schema.define(version: 20150110042222) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mones", force: true do |t|
     t.integer  "user_id"
@@ -21,6 +33,12 @@ ActiveRecord::Schema.define(version: 20150110012905) do
   end
 
   add_index "mones", ["user_id"], name: "index_mones_on_user_id"
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "transactions", force: true do |t|
     t.integer  "user_id"
@@ -46,10 +64,10 @@ ActiveRecord::Schema.define(version: 20150110012905) do
     t.string   "name"
     t.string   "last_name"
     t.integer  "role"
-    t.string   "state"
-    t.string   "city"
+    t.string   "state_id"
+    t.string   "city_id"
     t.integer  "age"
-    t.string   "genre"
+    t.string   "genre_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
