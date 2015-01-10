@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MoneApp</title>
+  <title>MoNe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -40,19 +40,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">Que es MoNe?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#about">Como Funciona?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#team">Equipo</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">Contacto</a>
                     </li>
                                     <% if user_signed_in? %>
                                         <li><%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "page-scroll" %></li>
@@ -76,7 +73,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    <span class="copyright">Copyright &copy; MoNe Holding Group LLC 2015</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
