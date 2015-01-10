@@ -40,6 +40,11 @@ body {
     line-height: normal;
 }
 
+.text-md{
+    font-size: 20px;
+    line-height: normal;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;
