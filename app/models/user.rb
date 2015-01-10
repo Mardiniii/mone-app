@@ -36,4 +36,10 @@ class User < ActiveRecord::Base
   belongs_to :state
   belongs_to :city
   belongs_to :genre
+#   after_create :assign_mone
+
+# def assign_mone
+# 	user.
+# end
+
 end
