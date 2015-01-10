@@ -9,7 +9,14 @@ class TransactionsController < ApplicationController
 	def new
 		@transaction = Transaction.new(transaction_params)
 		@transaction.sender_id = current_user.id
-		
+		@email = params[:email]
+		@transaction.user = User.all.where(@email)
+		if @transaction.save
+			redirect_to @transaction
+		else
+			puts @transaction.errors.full_messages
+			render 'new'
+		end
 	end
 
 	def create
