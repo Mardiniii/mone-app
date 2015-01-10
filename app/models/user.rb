@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :mone
   has_many :transactions
+  belongs_to :state
+  belongs_to :city
+  belongs_to :genre
 end
