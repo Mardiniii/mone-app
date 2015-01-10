@@ -54,7 +54,14 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
-                    <li><%= link_to "Log In", new_user_session_path, class: "page-scroll" %></li>
+                                    <% if user_signed_in? %>
+                                        <li><%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "page-scroll" %></li>            
+                                        <li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "page-scroll" %></li>             
+                                        <li><%= link_to "Edit User", edit_user_registration_path, :class => "page-scroll" %></li>                  
+                                    <% else %>
+                                        <li><%= link_to "Sign Up", new_user_registration_path, class: "page-scroll" %></li>
+                                        <li><%= link_to "Log In", new_user_session_path, class: "page-scroll" %></li>
+                                    <% end %>                
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
