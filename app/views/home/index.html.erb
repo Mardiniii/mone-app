@@ -4,7 +4,9 @@
       <div class="intro-lead-in">Bienvenidos a MoNe</div>
       <div class="intro-heading">El primer SEGURO DE EDUCACIÓN PARA TUS HIJOS </div>
       <div class="intro-lead-in">desde $5.000 mensuales!</div>
+      <% if !user_signed_in? %>
       <%= link_to 'Registrate Ya!', new_user_registration_path, class: "page-scroll btn btn-xl" %>
+      <% end %>
     </div>
   </div>
 </header>
@@ -99,7 +101,7 @@
                         </li>
                         <li class="timeline-inverted">
                           <div class="timeline-image">
-                            <h4>Simple 
+                            <h4>Simple
                               <br>y
                               <br>Gratis!</h4>
                             </div>

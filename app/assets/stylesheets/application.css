@@ -11,8 +11,8 @@
  * file per style scope.
  *
 *= require font-awesome
- *= require_tree .
- *= require_self
+*= require custom_bootstrap
+*= require_self
  */
 
 /*!
@@ -26,6 +26,13 @@ body {
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+span{
+    color: #fff
+}
+.loginpanel-navbar{
+    display: inline;
+    background-color: #fff
+}
 .margin-container{
    margin-top: 100px;
 }
@@ -140,6 +147,17 @@ fieldset[disabled] .btn-primary.active {
     background-color: #fff;
 }
 
+.btn-sm {
+    padding: 1px 1px;
+    border-color: #fed136;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #fed136;
+}
 .btn-xl {
     padding: 20px 40px;
     border-color: #fed136;
