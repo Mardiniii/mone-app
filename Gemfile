@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'annotate', '~> 2.6.5'
 gem 'roadie', '~> 2.4'
 gem "font-awesome-rails"
+gem 'gravatar-ultimate'
 
 group :development do
 	gem 'byebug'
