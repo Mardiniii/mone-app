@@ -20,7 +20,7 @@
 <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav <% if current_page?(root_path) %> class="navbar navbar-default navbar-fixed-top"<%else%> class="navbar navbar-default navbar-shrink"  <%end%>>
+    <nav <% if current_page?(root_path) %> id="navbar-out-home" class="navbar navbar-default navbar-fixed-top "<%else%>id="navbar-out-home" class="navbar navbar-default navbar-fixed-top navbar-shrink navbar-out-home"  <%end%>>
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -55,13 +55,13 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                                     <% if user_signed_in? %>
-                                        <li><%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "page-scroll" %></li>            
-                                        <li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "page-scroll" %></li>             
-                                        <li><%= link_to "Edit User", edit_user_registration_path, :class => "page-scroll" %></li>                  
+                                        <li><%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "page-scroll" %></li>
+                                        <li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "page-scroll" %></li>
+                                        <li><%= link_to "Edit User", edit_user_registration_path, :class => "page-scroll" %></li>
                                     <% else %>
                                         <li><%= link_to "Sign Up", new_user_registration_path, class: "page-scroll" %></li>
                                         <li><%= link_to "Log In", new_user_session_path, class: "page-scroll" %></li>
-                                    <% end %>                
+                                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
