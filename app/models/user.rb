@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :name, :last_name, :role, :state_id, :city_id, :age, :genre_id, presence: true
+  validates :email, uniqueness: true
   has_one :mone
   has_many :transactions
   belongs_to :state

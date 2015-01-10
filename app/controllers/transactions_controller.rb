@@ -1,25 +1,31 @@
 class TransactionsController < ApplicationController
 	before_action :authenticate_user!
-
 	def index
 		@user = current_user
 		@transactions = @user.transactions
 	end
 
 	def new
+		@transaction = Transaction.new
+	end
+
+	def create
 		@transaction = Transaction.new(transaction_params)
 		@transaction.sender_id = current_user.id
 		@email = params[:email]
-		@transaction.user = User.all.where(@email)
+		@transaction.user = User.find_by_email(@email)
+		# falta validar el monto de la transaccion el MoNe de cada usuario
+		# if current_user.id = sender_id
+
+		# else
+		
+		# end
 		if @transaction.save
-			redirect_to @transaction
+			redirect_to transactions_path
 		else
 			puts @transaction.errors.full_messages
 			render 'new'
 		end
-	end
-
-	def create
 	end
 
 	def show
@@ -27,6 +33,6 @@ class TransactionsController < ApplicationController
 
 	private
   		def transaction_params
-    		params.require(:transaction).permit(:user_id,:sender_id,:amount)
+    		params.require(:transaction).permit(:email,:amount)
   		end
 end
