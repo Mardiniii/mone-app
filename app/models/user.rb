@@ -27,13 +27,18 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  enum role: [:estudiante, :aportante, :administrador]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, :last_name, :role, :state_id, :city_id, :age, :genre_id, presence: true
-  validates :email, uniqueness: true
   has_one :mone
   has_many :transactions
   belongs_to :state
   belongs_to :city
   belongs_to :genre
+  after_create :assign_mone
+
+  def assign_mone
+	self.mone = Mone.create(quantity:"0")
+  end
 end

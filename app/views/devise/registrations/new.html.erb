@@ -15,7 +15,7 @@
 
       <div class="field form-group">
         <%= f.label :tipo_de_usuario %>
-        <%= f.select :role, [['Estudiante', 1], ['Aportante', 2], ['Admin', 3]], {include_blank: true}, {:class => 'form-control'}  %>
+        <%= f.select :role, User.roles.keys.to_a, {}, :class => "form-control" %>
       </div>
 
       <div class="field form-group">
