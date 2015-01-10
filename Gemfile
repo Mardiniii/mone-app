@@ -17,8 +17,10 @@ gem 'roadie', '~> 2.4'
 
 group :development do
 	gem 'byebug'
+	gem 'guard-livereload', require: false
 	gem 'web-console', '~> 2.0'
 	gem 'spring'
+	gem 'guard'
 end
 
 group :production do 
