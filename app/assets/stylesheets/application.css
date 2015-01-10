@@ -282,7 +282,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(header-bg.jpg);
+    background-image: url(http://www.on-time-accounting.com/wp-content/uploads/2014/01/Education_Chalkboard.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -315,7 +315,7 @@ header .intro-text .intro-heading {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 300px;
+        padding-top: 200px;
         padding-bottom: 200px;
     }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MoNe</title>
+  <title id = "title">MoNe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -46,6 +46,9 @@
                         <a class="page-scroll" href="#about">Como Funciona?</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#portfolio">Cobertura</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#team">Equipo</a>
                     </li>
                     <li>
@@ -56,7 +59,7 @@
                                         <li><%= link_to "Edit User", edit_user_registration_path, :class => "page-scroll" %></li> 
                                         <li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "page-scroll" %></li>                  
                                     <% else %>
-                                        <li><%= link_to "Sign Up", new_user_registration_path, class: "page-scroll" %></li>
+                                        <li><%= link_to "Registrate", new_user_registration_path, class: "page-scroll btn btn-xl" %></li>
                                         <li><%= link_to "Log In", new_user_session_path, class: "page-scroll" %></li>
                                     <% end %>                
                 </ul>
