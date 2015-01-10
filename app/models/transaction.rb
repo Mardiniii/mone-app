@@ -11,5 +11,6 @@
 #
 
 class Transaction < ActiveRecord::Base
+	validates :user_id, :sender_id, :amount, presence: true
 	belongs_to :user
 end
