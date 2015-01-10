@@ -14,12 +14,17 @@ class TransactionsController < ApplicationController
 		@transaction.sender_id = current_user.id
 		@email = params[:email]
 		@transaction.user = User.find_by_email(@email)
-		# falta validar el monto de la transaccion el MoNe de cada usuario
-		# if current_user.id = sender_id
 
-		# else
-		
-		# end
+		if current_user.mone.quantity == 0 || @transaction.amount > current_user.mone.quantity
+			# Transaccion denegada falta de fondos
+			redirect_to new_transaction_path
+		end
+
+		if current_user.id = @transaction.sender_id
+			current_user.try(:mone).quantity = current_user.mone.quantity - @transaction.amount
+		else
+			current_user.quantity = current_user.quantity + @transaction.amount
+		end
 		if @transaction.save
 			redirect_to transactions_path
 		else
