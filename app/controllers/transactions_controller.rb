@@ -11,44 +11,59 @@ class TransactionsController < ApplicationController
 
 	def create
 		@transaction = Transaction.new(transaction_params)
-		
 		@transaction.sender_id = current_user.id
 		@email = params[:email]
 		@transaction.user = User.find_by_email(@email)
 
-		if @transaction.amount > current_user.mone.quantity
+		if @transaction.sender_id == @transaction.user.id
 			redirect_to new_transaction_path
 			return
+			#no es posible enviarse dinero a uno mismo
+		else
+			puts "Current User Role: #{current_user.role} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+			if User.find(@transaction.sender_id).role == 'estudiante'
+				puts 'estoy adentro'
+				if current_user.mone.quantity < @transaction.amount
+					redirect_to transactions_path
+					return
+					#falta colocar alerta de que no tiene saldo
+				else
+					if @transaction.save
+						sender = current_user
+						saldo = sender.mone.quantity - (@transaction.amount / 1000)
+						receiver = @transaction.user
+						sender.mone.update(quantity:saldo)
+						receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.amount / 1000))
+						redirect_to @transaction
+						return
+					else
+						puts @transaction.errors.full_messages
+						redirect_to new_transaction_path
+					end
+				end
+			elsif User.find(@transaction.sender_id).role == 'aportante'
+				if current_user.mone.quantity < @transaction.amount
+					redirect_to transactions_path
+					return
+					#falta colocar alerta de que no tiene saldo
+				else
+					if @transaction.save
+						receiver = @transaction.user
+						receiver.mone.update(quantity:@transaction.amount)
+						redirect_to @transaction
+						return
+					else
+						puts @transaction.errors.full_messages
+						redirect_to new_transaction_path
+						return
+					end
+				end
+			end
 		end
-
-		if current_user.role == 1
-			saldo = current_user.mone.quantity - @transaction.amount
-			current_user.mone.update_attribute(:quantity => saldo) 
-			@receiver.mone.quantity += @transaction.amount
-			redirect_to 
-		end
-
-		# if current_user.mone.quantity == 0 || @transaction.amount > current_user.mone.quantity
-		# 	# Transaccion denegada falta de fondos
-		# 	render 'index'
-		# end
-		# if current_user.id = @transaction.sender_id
-		# 	current_user.try(:mone).quantity = current_user.mone.quantity - @transaction.amount
-		# else
-		# 	current_user.quantity = current_user.quantity + @transaction.amount
-		# end
-		
-		# if @transaction.save
-		# 	redirect_to transactions_path
-		# 	return
-		# else
-		# 	puts @transaction.errors.full_messages
-		# 	redirect_to new_transaction_path
-		# 	return
-		# end
 	end
 
 	def show
+  		@transaction = Transaction.find(params[:id])
 	end
 
 	private
