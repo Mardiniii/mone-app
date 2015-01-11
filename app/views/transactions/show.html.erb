@@ -5,8 +5,8 @@
   <h4>ID: <%= @transaction.id%></h4>
   <h4>Estudiante: <%= @transaction.user.try(:name) %><%= @transaction.user.try(:last_name) %></h4>
   <h4>Aportante: <%= User.find(@transaction.sender_id).try(:name) %> <%= User.find(@transaction.sender_id).try(:last_name) %></h4>
-  <h4>Mones: <%= @transaction.mone_amount %></h4>
+  <h4>Mones: <%= number_with_delimiter(@transaction.mone_amount, :delimiter => ',') %></h4>
   <h4>Valor: <%= number_with_delimiter(@transaction.amount, :delimiter => ',') %></h4>
-  <h4>Fecha: <%= number_with_delimiter(@transaction.created_at, :delimiter => ',') %></h4>
+  <h4>Fecha: <%= @transaction.created_at %></h4>
   </div>
 </div>

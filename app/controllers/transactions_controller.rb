@@ -49,7 +49,7 @@ class TransactionsController < ApplicationController
 				else
 					if @transaction.save
 						receiver = @transaction.user
-						receiver.mone.update(quantity:@transaction.amount)
+						receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.mone_amount))
 						redirect_to @transaction
 						return
 					else
@@ -66,8 +66,33 @@ class TransactionsController < ApplicationController
   		@transaction = Transaction.find(params[:id])
 	end
 
+	def create_recharge
+		@transaction = Transaction.new
+	end
+
+	def save_recharge
+		@transaction = Transaction.new(recharge_params)
+		@transaction.sender_id = current_user.id
+		@transaction.user = current_user
+		if @transaction.save
+			@transaction.user.mone.update(quantity:(@transaction.user.mone.quantity+@transaction.amount))
+			redirect_to @transaction
+			return
+		else
+			puts @transaction.errors.full_messages
+			redirect_to new_transaction_path
+			return
+		end
+
+
+	end
+
 	private
   		def transaction_params
     		params.require(:transaction).permit(:email,:mone_amount,:amount)
+  		end
+
+  		def recharge_params
+  			params.require(:transaction).permit(:mone_amount,:amount)
   		end
 end
