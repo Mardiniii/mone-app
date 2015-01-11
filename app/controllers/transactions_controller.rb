@@ -1,9 +1,5 @@
 class TransactionsController < ApplicationController
 	before_action :authenticate_user!
-	def index
-		@user = current_user
-		@transactions = @user.transactions
-	end
 
 	def new
 		@transaction = Transaction.new
