@@ -18,7 +18,7 @@ up-to-date documentation can be found at http://httpd.mone.org/docs/trunk/.
 **1.** First run **bundle install** in order to download all the necessary gems for the app
 **2.** Run **rails migrate** in order to install the datab
 **3.** Run **rake db:seeds** to install all the preconfigured data
-**4.** In order to use the **ELIBOM API**you should modify the data for users and passwords in config/initializers/elibom.rb
+**4.** In order to use the **ELIBOM API** you should modify the data for users and passwords in config/initializers/elibom.rb
 For testing you should use a user we have already setup: 
  ```(:user => 'neneriostb@gmail.com', :api_password => 'M819eUojSJ')```
 If you have any doubts about Elibom Api configuration don´t hesitate to visit their full documentation at: https://www.elibom.com/developers
