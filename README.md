@@ -20,7 +20,10 @@ Education is the most powerful World-Change-Maker, our team deeply believes that
 
 ## Contributors
 
-Sebas Mardini, Miguel Casas and Andres Angel are 3 full stack developers that started this project since January 9 of 2015 in a **Hackaton** organized by **Make It Real BootCamp** in Medellin, Colombia. For more information about the founders you can find them at: https://github.com/Mardiniii, https://github.com/mike-casas, https://github.com/aangelcu 
+Sebas Mardini, Miguel Casas and Andres Angel are 3 full stack developers that started this project since January 9 of 2015 in a **Hackaton** organized by **Make It Real BootCamp** in Medellin, Colombia. For more information about the founders you can find them at: 
+Sebas Mardini: https://github.com/Mardiniii 
+Miguel Casas: https://github.com/mike-casas
+Andres Angel: https://github.com/aangelcu 
 
 ## Acknowledgements
 
