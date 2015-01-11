@@ -11,8 +11,8 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">150</div>
-                        <div>MI BALANCE</div>
+                        <div class="huge"><%= number_with_delimiter(current_user.mone.quantity, :delimiter => ',') %></div>
+                        <div>MoNes</div>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="col-lg-6 col-md-6">
-        <div class="panel panel-red">
+        <%= link_to ('<div class="panel panel-red">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3 ">
@@ -40,13 +40,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
-                <div >
-
-
-                    <div class="clearfix"></div>
-                </div>
-            </a>
+              ').html_safe, new_transaction_path %>
         </div>
     </div>
 </div>
