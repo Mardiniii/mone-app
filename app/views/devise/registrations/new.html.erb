@@ -18,22 +18,22 @@
 
         <div class="field form-group">
           <%= f.label :Genero %>
-          <%= collection_select(:user, :genre_id, Genre.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
+          <%= collection_select(:user, :genre_id, Genre.all, :id, :name, {include_blank: false}, {:class => 'form-control'}) %>
         </div>
 
         <div class="field form-group">
           <%= f.label :Cuantos_años_tienes? %><br />
-          <%= f.select :age, (1..101).to_a, { :include_blank=>true }, { :class => 'form-control' } %>
+          <%= f.select :age, (1..101).to_a, { :include_blank=>false }, { :class => 'form-control' } %>
         </div>
 
         <div class="field form-group">
           <%= f.label :Departamento %>
-          <%= collection_select(:user, :state_id, State.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
+          <%= collection_select(:user, :state_id, State.all, :id, :name, {include_blank: false}, {:class => 'form-control'}) %>
         </div>
 
         <div class="field form-group">
           <%= f.label :ciudad %>
-          <%= collection_select(:user, :city_id, City.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
+          <%= collection_select(:user, :city_id, City.all, :id, :name, {include_blank: false}, {:class => 'form-control'}) %>
         </div>
 
         <div class="field form-group">
