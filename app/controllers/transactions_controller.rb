@@ -79,8 +79,6 @@ class TransactionsController < ApplicationController
 			redirect_to new_transaction_path
 			return
 		end
-
-
 	end
 
 	private
