@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require cbpAnimatedHeader.js
-//= require agency.js
-
+//= require raphael.min.js
+//= require morris.min.js
+//= require morris-data.js

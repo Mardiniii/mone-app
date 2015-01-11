@@ -1,10 +1,13 @@
 <header>
+
 	<div class="container">
 		<div class="intro-text">
 			<div class="intro-lead-in">Bienvenidos a MoNe</div>
 			<div class="intro-heading">El primer SEGURO DE EDUCACIÓN PARA TUS HIJOS </div>
 			<div class="intro-lead-in">desde $5.000 mensuales!</div>
-			<%= link_to 'Registrate Ya!', new_user_registration_path, class: "page-scroll btn btn-xl" %>
+			<% if !user_signed_in? %>
+      <%= link_to 'Registrate Ya!', new_user_registration_path, class: "page-scroll btn btn-xl" %>
+      <% end %>
 		</div>
 	</div>
 </header>
@@ -99,7 +102,7 @@
 												</li>
 												<li class="timeline-inverted">
 													<div class="timeline-image">
-														<h4>Simple 
+														<h4>Simple
 															<br>y
 															<br>Gratis!</h4>
 														</div>
@@ -152,7 +155,6 @@
 				<div class="col-sm-4">
 					<div class="team-member">
 					 <%= image_tag(Gravatar.new("neneriostb@gmail.com").image_url+"?s=130", class:"img-responsive img-circle avatar-comments") %>
-
 						<h4>Miguel Casas</h4>
 						<p class="text-muted">Puro Sabor y SalsaChoque #FullStackDeveloper</p>
 						<ul class="list-inline social-buttons">
@@ -266,3 +268,4 @@
 					</div>
 			</div>
 	</section>
+

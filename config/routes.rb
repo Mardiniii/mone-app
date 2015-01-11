@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard' =>'dashboard#index'
+
   root 'home#index'
   devise_for :users
   resources :transactions
