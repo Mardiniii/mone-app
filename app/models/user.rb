@@ -43,6 +43,8 @@ class User < ActiveRecord::Base
    end
 
   def assign_mone
-	self.mone = Mone.create(quantity:"0")
+    if self.role == "Estudiante"
+      self.mone = Mone.create(quantity:"0")
+    end
   end
 end
