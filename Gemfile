@@ -16,7 +16,7 @@ gem 'annotate', '~> 2.6.5'
 gem 'roadie', '~> 2.4'
 gem "font-awesome-rails"
 gem 'gravatar-ultimate'
-
+gem "chartkick"
 group :development do
 	gem 'byebug'
 	gem 'guard-livereload', require: false
