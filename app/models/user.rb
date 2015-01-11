@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   after_create :assign_mone , :send_email
 
    def send_email
-    UserMailer.transactions(self).deliver
+    UserMailer.welcome_email(self).deliver
    end
 
   def assign_mone

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 # api sms ==============
-require 'elibom'
+
 
 
 #=====================
@@ -17,7 +17,7 @@ require 'elibom'
   else
   	dashboard_contributor_path
   end
-    
+
 
 
     end
