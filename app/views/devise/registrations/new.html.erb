@@ -50,7 +50,7 @@
 
         <div class="field form-group">
           <%= f.label :age %><br />
-          <%= f.select :age, (10..101).to_a, :class => "form-control"  %>
+          <%= f.select :age, (1..101).to_a, :class => "form-control"  %>
         </div>
 
         <div class="field form-group">
@@ -64,8 +64,7 @@
         </div>
 
         <div class="actions form-group text-center">
-          <%= f.submit "Sign up", :class => 'btn btn-default' %>
-          <%= render "devise/shared/links" %>
+          <%= f.submit "Sign up", :class => 'button boton btn btn-warning' %>
         </div>
       <% end %>
     </div>
