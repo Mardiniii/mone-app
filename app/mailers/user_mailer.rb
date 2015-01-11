@@ -22,6 +22,6 @@ class UserMailer < ApplicationMailer
         @sender = sender
         @mones= mone
         @receiver =receiver
-        mail(to: @receiver.email,subject:"transacción realizada")
+        mail(to: @receiver.email,subject:"Transacción Realizada")
     end
 end
