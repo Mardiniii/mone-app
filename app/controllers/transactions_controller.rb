@@ -69,8 +69,8 @@ class TransactionsController < ApplicationController
 	def show
 		require 'elibom'
   		@transaction = Transaction.find(params[:id])
-			# response = Elibom.send_message(:to => '3153411654', :text => "Felicitaciones! acabas de aportarle #{@transaction.mone_amount} Mone(s) al estudiante #{@transaction.user.name} para ayudarle alcanzar su futuro . fecha: #{@transaction.created_at}  ")
-			# puts response
+			response = Elibom.send_message(:to => current_user.cellphone, :text => "Felicitaciones! acabas de aportarle #{@transaction.mone_amount} Mone(s) al estudiante #{@transaction.user.name} para ayudarle alcanzar su futuro . fecha: #{@transaction.created_at}  ")
+			puts response
 			sender=User.find(@transaction.sender_id)
       receiver=@transaction.user
       mone= @transaction.mone_amount
