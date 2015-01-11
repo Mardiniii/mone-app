@@ -5,8 +5,8 @@
 			<h4>ID: <%= @transaction.id%></h4>
 			<h4>Estudiante: <%= @transaction.user.try(:name) %><%= @transaction.user.try(:last_name) %></h4>
 			<h4>Aportante: <%= User.find(@transaction.sender_id).try(:name) %> <%= User.find(@transaction.sender_id).try(:last_name) %></h4>
-			<h4>Mones: <%= number_with_delimiter(@transaction.mone_amount, :delimiter => ',') %></h4>
-			<h4>Valor: <%= number_to_currency(@transaction.amount, precision: 3) %></h4>
+			<h4>Mones: <%= number_with_delimiter(@transaction.try(:mone_amount), :delimiter => ',') %></h4>
+			<h4>Valor: <%= number_to_currency(@transaction.try(:amount), precision: 3) %></h4>
 			<h4>Fecha: <%= @transaction.created_at %></h4>
 		</div>
 		<%= link_to 'Mi Cuenta', dashboard_path, :class => "btn btn-info page-scroll" %>
