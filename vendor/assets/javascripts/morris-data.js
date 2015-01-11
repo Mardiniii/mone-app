@@ -2,6 +2,14 @@
 
 $(function() {
 
+    Morris.Line({
+  element: 'transactions_chart',
+  data: $('#transactions_chart').data('transactions'),
+  xkey: 'created_at',
+  ykeys: ['amount'],
+  labels: ['amount']
+});
+
     // Area Chart
     Morris.Area({
         element: 'morris-area-chart',

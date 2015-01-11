@@ -1,6 +1,13 @@
 class TransactionsController < ApplicationController
 	before_action :authenticate_user!
 
+	def index
+		@user = current_user
+		@transactions = @user.transactions
+	end
+
+
+
 	def new
 		@transaction = Transaction.new
 	end
@@ -17,8 +24,10 @@ class TransactionsController < ApplicationController
 			#no es posible enviarse dinero a uno mismo
 		else
 			puts "Current User Role: #{current_user.role} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+
 			if User.find(@transaction.sender_id).role == 'Estudiante'
-				if current_user.mone.quantity < @transaction.mone_amount 
+				if current_user.mone.quantity < @transaction.mone_amount
+
 					# Verificar que el estudiante tenga dinero para transferir
 					redirect_to new_transaction_path
 					return
@@ -78,6 +87,11 @@ class TransactionsController < ApplicationController
 	end
 
 	private
+	   def sms_students amount
+       Elibom.configure(:user => 'neneriostb@gmail.com', :api_password => 'M819eUojSJ')
+       response = Elibom.send_message(:to => '3148236628', :text => "tranferencia realizada por #{amount}")
+       puts amount
+   end
   		def transaction_params
     		params.require(:transaction).permit(:email,:mone_amount,:amount)
   		end

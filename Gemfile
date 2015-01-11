@@ -17,6 +17,7 @@ gem 'roadie', '~> 2.4'
 gem "font-awesome-rails"
 gem 'gravatar-ultimate'
 gem "chartkick"
+gem "elibom"
 group :development do
 	gem 'byebug'
 	gem 'guard-livereload', require: false
