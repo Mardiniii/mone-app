@@ -75,7 +75,11 @@
 						</li>
 					<% end %>
 					<% if user_signed_in? %>
-						<li><%= link_to ("<i class='fa fa-fw fa-gear'></i>#{current_user.name}").html_safe, dashboard_path, :class => "page-scroll" %></li>
+						<% if current_user.role == 'Estudiante' %>
+							<li><%= link_to ("<i class='fa fa-fw fa-gear'></i>#{current_user.name}").html_safe, dashboard_path, :class => "page-scroll" %></li>
+						<% else %>
+							<li><%= link_to ("<i class='fa fa-fw fa-gear'></i>#{current_user.name}").html_safe, dashboard_contributor_path, :class => "page-scroll" %></li>
+						<% end %>						 
 						<li><%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "img-circle page-scroll" %></li>
 						<li><%= link_to ('<i class="fa fa-fw fa-power-off"></i>Salir').html_safe, destroy_user_session_path, method: :delete, :class => "page-scroll" %>
 						</li>
@@ -85,14 +89,9 @@
 					<% end %>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid -->
 	</nav>
-
 	<%= yield %>
-
-
 	<footer>
 		<div class="container">
 			<div class="row">
