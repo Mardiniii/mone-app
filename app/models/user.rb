@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   enum role: [:Estudiante, :Aportante, :Administrador]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :name, :last_name, :role, :state_id, :city_id, :age, :genre_id, presence: true
+  validates :name, :last_name, :role, :state_id, :city_id, :age,:cellphone, :genre_id, presence: true
   has_one :mone
   has_many :transactions
   belongs_to :state
