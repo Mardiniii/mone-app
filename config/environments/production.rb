@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable Rails's static asset server (Apache or NGINX will already do this).
   config.serve_static_assets = false
-
+  config.action_mailer.default_url_options = { :host => 'http://monecoins.herokuapp.com/' }
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
