@@ -3,63 +3,65 @@
 <div class="row">
 
 
-    <div class="col-lg-6 col-md-6">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-support fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge"><%= number_with_delimiter(current_user.mone.quantity, :delimiter => ',') %></div>
-                        <div>MoNes</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div >
+		<div class="col-lg-6 col-md-6">
+				<div class="panel panel-yellow">
+						<div class="panel-heading">
+								<div class="row">
+										<div class="col-xs-3">
+												<i class="fa fa-tasks fa-5x"></i>
+										</div>
+										<div class="col-xs-9 text-right">
+												<div class="huge">Tu Saldo <%= number_with_delimiter(current_user.mone.quantity, :delimiter => ',') %></div>
+												<div>MoNes</div>
+										</div>
+								</div>
+						</div>
+						<a href="#">
+								<div >
 
 
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
+										<div class="clearfix"></div>
+								</div>
+						</a>
+				</div>
+		</div>
 
-    <div class="col-lg-3 col-md-3">
-        <%= link_to ('<div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3 ">
-                       <i class="fa fa-shopping-cart fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="text-md">TRANSFERIR</div>
-                        <div class="text-md">MONES</div>
+		<div class="col-lg-3 col-md-6">
+				<%= link_to ('<div class="panel panel-green">
+						<div class="panel-heading">
+								<div class="row">
+										<div class="col-xs-3 ">
+											 <i class="fa fa-support fa-5x"></i>
+										</div>
+										<div class="col-xs-9 text-right">
+												<div class="text-md">TRANSFERIR</div>
+												<div class="text-md">MONES</div>
+												<div>a otros usuarios</div>
 
-                    </div>
-                </div>
-            </div>
-              ').html_safe, new_transaction_path %>
-        </div>
-    </div>
+										</div>
+								</div>
+						</div>
+							').html_safe, new_transaction_path %>
+				</div>
+		</div>
 
-    <div class="col-lg-3 col-md-3">
-        <%= link_to ('<div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3 ">
-                       <i class="fa fa-shopping-cart fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="text-md">RECARGAR</div>
-                        <div class="text-md">MONES</div>
+		<div class="col-lg-3 col-md-6">
+				<%= link_to ('<div class="panel panel-red">
+						<div class="panel-heading">
+								<div class="row">
+										<div class="col-xs-3 ">
+											 <i class="fa fa-shopping-cart fa-5x"></i>
+										</div>
+										<div class="col-xs-9 text-right">
+												<div class="text-md">RECARGAR</div>
+												<div class="text-md">MONES</div>
+												<div>a tu cuenta</div>
 
-                    </div>
-                </div>
-            </div>
-              ').html_safe, new_transaction_path %>
-        </div>
-    </div>
+										</div>
+								</div>
+						</div>
+							').html_safe, new_transaction_path %>
+				</div>
+		</div>
 </div>
 <!-- /.row -->

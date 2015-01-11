@@ -27,7 +27,7 @@
         </div>
 
         <div class="field form-group">
-          <%= f.label :departamento %>
+          <%= f.label :Departamento %>
           <%= collection_select(:user, :state_id, State.all, :id, :name, {include_blank: true}, {:class => 'form-control'}) %>
         </div>
 
@@ -37,7 +37,7 @@
         </div>
 
         <div class="field form-group">
-          <%= f.label :eres_estudiante_o_aportaras_en_la_cuenta_de_alguien? %>
+          <%= f.label :Eres_estudiante_o_aportaras_en_la_cuenta_de_alguien? %>
           <%= f.select :role, User.roles.keys.to_a, {}, :class => "form-control" %>
         </div>
 
