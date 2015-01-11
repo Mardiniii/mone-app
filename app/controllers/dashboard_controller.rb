@@ -6,8 +6,9 @@ class DashboardController < ApplicationController
   	@user = current_user
   	@user_transactions = @user.transactions
   	@sended_transactions = Transaction.all.where("sender_id = #{current_user.id}")
-
   end
 
-
+  def contributor
+  	@sended_transactions = Transaction.all.where("sender_id = #{current_user.id}")
+  end
 end

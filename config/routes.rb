@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'dashboard' =>'dashboard#index'
   get 'recharge' => 'transactions#create_recharge'
   post 'save_recharge' => 'transactions#save_recharge'
+  get 'dashboard_contributor' => 'dashboard#contributor'
 
   root 'home#index'
   devise_for :users

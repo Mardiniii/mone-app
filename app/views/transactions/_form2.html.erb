@@ -16,7 +16,7 @@
 	</div>
   	<div class="field form-group">
 	<%= f.label :Valor_en_pesos_colombianos %><br>
-	<%= f.number_field :amount, :class => "form-control", id: 'value' %>
+	<%= number_to_currency(f.number_field :amount, :class => "form-control", id: 'value', precision: 3) %>
 </div>
 
   <div class="actions form-group text-center">
