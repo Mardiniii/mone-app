@@ -50,7 +50,7 @@
 
         <div class="field form-group">
           <%= f.label :age %><br />
-          <%= f.number_field :age, :class => "form-control"  %>
+          <%= f.select :age, (10..101).to_a, :class => "form-control"  %>
         </div>
 
         <div class="field form-group">
