@@ -11,18 +11,18 @@
   </div>
   <% end %>
  	<div class="field form-group">
- 		<%= f.label :mones %><br>
+ 		<%= f.label :Cuantos_Mones_deseas_transferir? %><br>
  		<%= f.number_field :mone_amount, :class => "form-control", id: 'mone_value' %>
  	</div>
   	<div class="field form-group">
-		<%= f.label :valor %><br>
+		<%= f.label :Valor_en_pesos_colombianos %><br>
 		<%= f.number_field :amount, :class => "form-control", id: 'value' %>
 	</div>
 	<div class="field form-group">
-		<%= f.label :to %><br>
-		<%= email_field_tag 'email', nil, placeholder: 'email@example.com', class: 'form-control' %>
+		<%= f.label :Para_ %><br>
+		<%= email_field_tag 'email', nil, placeholder: 'Ingresa aqui email usuario a transferir. Ej: amigo@mail.com', class: 'form-control' %>
 	</div> 
   <div class="actions form-group">
-<%= f.submit 'Transferir', :class => 'btn btn-success' %>
+<%= f.submit 'Transferir', :class => 'btn btn-primary btn-lg btn-warning' %>
 </div>
 <% end %>
