@@ -16,15 +16,7 @@
 //= require bootstrap-sprockets
 //= require cbpAnimatedHeader
 //= require agency
-//= require morris.min.js
+//= require conversor.js
 //= require raphael.min.js
 //= require morris-data
-
-$( document ).ready(function(){
-	$('#mone_value').keyup(function(){
-		var mones = $('#mone_value').val();
-		$('#value').val(mones*1000);
-	});
-});
-
-
+//= require morris.min.js
