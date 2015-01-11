@@ -76,16 +76,13 @@
 							<%= link_to ('<i class="fa fa-fw fa-power-off"></i>Salir').html_safe, destroy_user_session_path, method: :delete, :class => "page-scroll" %>
 						</li>
 						<li><% if current_page?(root_path) %><%= link_to ('<i class="fa fa-fw fa-gear"></i>MI CUENTA').html_safe, dashboard_path, :class => "page-scroll" %> <% end %></li>
-						<% else %>
-						<li><%= link_to "Registrate", new_user_registration_path, class: "page-scroll btn btn-sm" %></li>
-						<li><%= link_to "Log In", new_user_session_path, class: "page-scroll" %></li>
-						<li>
+							<li>
 						 <%= link_to ('<i class="fa fa-fw fa-power-off"></i>Salir').html_safe, destroy_user_session_path, method: :delete, :class => "page-scroll" %>
 						</li>
-						<li><%= link_to ('<i class="fa fa-fw fa-gear"></i>Panel').html_safe, dashboard_path, :class => "page-scroll" %></li>
 						<% else %>
 						<li><%= link_to "Registrate", new_user_registration_path, class: "page-scroll btn btn-sm" %></li>
 						<li><%= link_to "Log In", new_user_session_path, class: "page-scroll" %></li>
+
 					<% end %>
 				</ul>
 			</div>
