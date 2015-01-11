@@ -16,4 +16,11 @@
 //= require bootstrap-sprockets
 //= require cbpAnimatedHeader.js
 //= require agency.js
+$( document ).ready(function(){
+	$('#mone_value').keyup(function(){
+		var mones = $('#mone_value').val();
+		$('#value').val(mones*1000);
+	});
+});
+
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110191814) do
+ActiveRecord::Schema.define(version: 20150111041519) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(version: 20150110191814) do
     t.integer  "user_id"
     t.integer  "sender_id"
     t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "mone_amount"
   end
 
   create_table "users", force: true do |t|
