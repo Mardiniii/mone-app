@@ -10,6 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -72,9 +73,6 @@
 					</li>
 					<% if user_signed_in? %>
 						<li><%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "img-circle page-scroll" %></li>
-						<li>
-							<%= link_to ('<i class="fa fa-fw fa-power-off"></i>Salir').html_safe, destroy_user_session_path, method: :delete, :class => "page-scroll" %>
-						</li>
 						<li><% if current_page?(root_path) %><%= link_to ('<i class="fa fa-fw fa-gear"></i>MI CUENTA').html_safe, dashboard_path, :class => "page-scroll" %> <% end %></li>
 							<li>
 						 <%= link_to ('<i class="fa fa-fw fa-power-off"></i>Salir').html_safe, destroy_user_session_path, method: :delete, :class => "page-scroll" %>
