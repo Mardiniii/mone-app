@@ -14,8 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require cbpAnimatedHeader.js
-//= require agency.js
+//= require cbpAnimatedHeader
+//= require agency
+//= require morris.min.js
+//= require raphael.min.js
+//= require morris-data
+
 $( document ).ready(function(){
 	$('#mone_value').keyup(function(){
 		var mones = $('#mone_value').val();

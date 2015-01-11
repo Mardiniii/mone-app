@@ -74,6 +74,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    elibom (0.6.1)
+      json
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -238,6 +240,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.1.0)
   devise
+  elibom
   font-awesome-rails
   gravatar-ultimate
   guard
