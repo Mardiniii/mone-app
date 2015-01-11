@@ -1,0 +1,27 @@
+<%= form_for( @transaction, :url => save_recharge_path, :html => { :method => :post } ) do |f| %>
+  <% if @transaction.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited
+      this transaction from being saved:</h2>
+    <ul>
+    <% @transaction.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+	<div class="field form-group">
+		<%= f.label :Cuantos_Mones_deseas_transferir? %><br>
+		<%= f.number_field :mone_amount, :class => "form-control", id: 'mone_value' %>
+	</div>
+  	<div class="field form-group">
+	<%= f.label :Valor_en_pesos_colombianos %><br>
+	<%= f.number_field :amount, :class => "form-control", id: 'value' %>
+</div>
+
+  <div class="actions form-group">
+<%= f.submit 'Transferir', :class => 'btn btn-primary btn-lg btn-warning' %>
+</div>
+<% end %>
+<%= link_to 'Mi Cuenta', dashboard_path, :class => "btn btn-info page-scroll" %>
+<%= link_to 'Nueva Transaction', new_transaction_path, :class => "btn btn-info" %>

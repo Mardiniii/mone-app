@@ -6,6 +6,8 @@ class TransactionsController < ApplicationController
 		@transactions = @user.transactions
 	end
 
+
+
 	def new
 		@transaction = Transaction.new
 	end
@@ -22,8 +24,10 @@ class TransactionsController < ApplicationController
 			#no es posible enviarse dinero a uno mismo
 		else
 			puts "Current User Role: #{current_user.role} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			if User.find(@transaction.sender_id).role == 'estudiante'
+
+			if User.find(@transaction.sender_id).role == 'Estudiante'
 				if current_user.mone.quantity < @transaction.mone_amount
+
 					# Verificar que el estudiante tenga dinero para transferir
 					redirect_to new_transaction_path
 					return
@@ -42,22 +46,18 @@ class TransactionsController < ApplicationController
 						redirect_to new_transaction_path
 					end
 				end
-			elsif User.find(@transaction.sender_id).role == 'aportante'
-				if current_user.mone.quantity < @transaction.amount
-					redirect_to transactions_path
+			elsif User.find(@transaction.sender_id).role == 'Aportante'
+				@transaction.user = User.find_by_email(@email)
+				@transaction.sender_id = current_user.id
+				if @transaction.save
+					receiver = @transaction.user
+					receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.mone_amount))
+					redirect_to @transaction
 					return
-					#falta colocar alerta de que no tiene saldo
 				else
-					if @transaction.save
-						receiver = @transaction.user
-						receiver.mone.update(quantity:@transaction.amount)
-						redirect_to @transaction
-						return
-					else
-						puts @transaction.errors.full_messages
-						redirect_to new_transaction_path
-						return
-					end
+					puts @transaction.errors.full_messages
+					redirect_to new_transaction_path
+					return
 				end
 			end
 		end
@@ -65,6 +65,25 @@ class TransactionsController < ApplicationController
 
 	def show
   		@transaction = Transaction.find(params[:id])
+	end
+
+	def create_recharge
+		@transaction = Transaction.new
+	end
+
+	def save_recharge
+		@transaction = Transaction.new(recharge_params)
+		@transaction.sender_id = current_user.id
+		@transaction.user = current_user
+		if @transaction.save
+			@transaction.user.mone.update(quantity:(@transaction.user.mone.quantity+@transaction.amount))
+			redirect_to @transaction
+			return
+		else
+			puts @transaction.errors.full_messages
+			redirect_to new_transaction_path
+			return
+		end
 	end
 
 	private
@@ -75,5 +94,9 @@ class TransactionsController < ApplicationController
    end
   		def transaction_params
     		params.require(:transaction).permit(:email,:mone_amount,:amount)
+  		end
+
+  		def recharge_params
+  			params.require(:transaction).permit(:mone_amount,:amount)
   		end
 end

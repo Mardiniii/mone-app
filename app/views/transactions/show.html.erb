@@ -1,12 +1,16 @@
 <div class="row margin-container">
-  <div class="col-md-4 col-md-offset-4 text-left">
-    <h2>TRANSACCION EXITOSA</h2>
-
-  <h4>ID: <%= @transaction.id%></h4>
-  <h4>Estudiante: <%= @transaction.user.try(:name) %><%= @transaction.user.try(:last_name) %></h4>
-  <h4>Aportante: <%= User.find(@transaction.sender_id).try(:name) %> <%= User.find(@transaction.sender_id).try(:last_name) %></h4>
-  <h4>Mones: <%= @transaction.mone_amount %></h4>
-  <h4>Valor: <%= number_with_delimiter(@transaction.amount, :delimiter => ',') %></h4>
-  <h4>Fecha: <%= number_with_delimiter(@transaction.created_at, :delimiter => ',') %></h4>
-  </div>
+	<div class="col-md-4 col-md-offset-4 text-center">
+		<h2 class="text-center">TRANSACCION EXITOSA</h2>
+		<div class="container text-left">
+			<h4>ID: <%= @transaction.id%></h4>
+			<h4>Estudiante: <%= @transaction.user.try(:name) %><%= @transaction.user.try(:last_name) %></h4>
+			<h4>Aportante: <%= User.find(@transaction.sender_id).try(:name) %> <%= User.find(@transaction.sender_id).try(:last_name) %></h4>
+			<h4>Mones: <%= number_with_delimiter(@transaction.mone_amount, :delimiter => ',') %></h4>
+			<h4>Valor: <%= number_with_delimiter(@transaction.amount, :delimiter => ',') %></h4>
+			<h4>Fecha: <%= @transaction.created_at %></h4>
+		</div>
+		<%= link_to 'Mi Cuenta', dashboard_path, :class => "btn btn-info page-scroll" %>
+		<%= link_to 'Nueva Transaction', new_transaction_path, :class => "btn btn-info" %>
+		<%= link_to 'Nueva Recarga', recharge_path, :class => "btn btn-info" %>
+	</div>
 </div>

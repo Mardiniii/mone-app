@@ -11,8 +11,15 @@ require 'elibom'
 #=====================
   layout :layout_by_resource
 
-    def after_sign_in_path_for(resource)
-     dashboard_path
+  def after_sign_in_path_for(resource)
+  if current_user.role == 'Estudiante'
+  	dashboard_path
+  else
+  	dashboard_contributor_path
+  end
+    
+
+
     end
 
 
