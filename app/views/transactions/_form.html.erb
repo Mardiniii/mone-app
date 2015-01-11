@@ -10,11 +10,14 @@
     </ul>
   </div>
   <% end %>
- 	
+ 	<div class="field form-group">
+ 		<%= f.label :mones %><br>
+ 		<%= f.number_field :mone_amount, :class => "form-control", id: 'mone_value' %>
+ 	</div>
   	<div class="field form-group">
 		<%= f.label :valor %><br>
-		<%= f.number_field :amount, :class => "form-control" %>
-	</div> 
+		<%= f.number_field :amount, :class => "form-control", id: 'value' %>
+	</div>
 	<div class="field form-group">
 		<%= f.label :to %><br>
 		<%= email_field_tag 'email', nil, placeholder: 'email@example.com', class: 'form-control' %>
