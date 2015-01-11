@@ -24,4 +24,12 @@ class UserMailer < ApplicationMailer
         @receiver =receiver
         mail(to: @receiver.email,subject:"Transacción Realizada")
     end
+
+    def contact_us_email(name,email,phone,text)
+        @name = name
+        @email = email 
+        @phone = phone
+        @text = text
+        mail(to: @email,subject:"MoNe App - Hemos recibido tu formulario de contacto")
+    end
 end
