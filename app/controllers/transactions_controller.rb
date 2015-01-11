@@ -39,6 +39,9 @@ class TransactionsController < ApplicationController
 						receiver = @transaction.user
 						sender.mone.update(quantity:saldo)
 						receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.mone_amount))
+						UserMailer.transactions_sender(sender,@transaction.mone_amount,receiver).deliver
+						UserMailer.transactions_receiver(sender,@transaction.mone_amount,receiver).deliver
+
 						redirect_to @transaction
 						return
 					else

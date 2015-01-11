@@ -36,7 +36,11 @@ class User < ActiveRecord::Base
   belongs_to :state
   belongs_to :city
   belongs_to :genre
-  after_create :assign_mone
+  after_create :assign_mone , :send_email
+
+   def send_email
+    UserMailer.transactions(self).deliver
+   end
 
   def assign_mone
 	self.mone = Mone.create(quantity:"0")

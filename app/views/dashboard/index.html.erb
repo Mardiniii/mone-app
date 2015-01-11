@@ -19,9 +19,7 @@
         <div class="panel-heading">
           <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Mi Ahorro en el tiempo</h3>
         </div>
-
           <%= content_tag :div, "", id: "transactions_chart",data: {transactions: transactions_chart_data} %>
-           <%= bar_chart @transactions_line %>
       </div>
     </div>
   </div>
