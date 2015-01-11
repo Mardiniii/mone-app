@@ -23,7 +23,7 @@
 
         <div class="field form-group">
           <%= f.label :Cuantos_años_tienes? %><br />
-          <%= f.select :age, (1..101).to_a, :class => "form-control"  %>
+          <%= f.select :age, (1..101).to_a, { :include_blank=>true }, { :class => 'form-control' } %>
         </div>
 
         <div class="field form-group">
@@ -65,6 +65,3 @@
       <% end %>
     </div>
 </div>
-
-<!--
-t.string   "genre" -->
