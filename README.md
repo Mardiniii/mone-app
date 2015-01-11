@@ -14,7 +14,22 @@ The documentation available as of the date of this release is included in **HTML
 up-to-date documentation can be found at http://httpd.mone.org/docs/trunk/.
 
 ## Installation
-Please see the file called **INSTALL**.  Platform specific notes can be found in README.platforms.
+**10 EASY STEPS FOR INSTALLING MoNe:**
+**1.** First run **bundle install** in order to download all the necessary gems for the app
+**2.** Run **rails migrate** in order to install the datab
+**3.** Run **rake db:seeds** to install all the preconfigured data
+**4.** In order to use the **ELIBOM API**you should modify the data for users and passwords in config/initializers/elibom.rb
+For testing you should use a user we have already setup: 
+ ```(:user => 'neneriostb@gmail.com', :api_password => 'M819eUojSJ')```
+If you have any doubts about Elibom Api configuration don´t hesitate to visit their full documentation at: https://www.elibom.com/developers
+**5.** In order to send **emails** to the app users you should first insert the user data for making any kind of testing. We have already made all the configuration for this functionality, so don´t worry too much about it ;)
+**6.** Run **rails server**
+**7.** Test the app in your http://localhost:3000/
+**8.** We already have a full **demo** application running on: http://monecoins.herokuapp.com/ for any other kind of doubts
+**9.** if any other inquieres don´t hesitate to contact us at info@mone.org
+**10.** Enjoy it! ;)
+
+
 
 ## Motivation
 
