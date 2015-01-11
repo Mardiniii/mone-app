@@ -8,15 +8,15 @@
           <%= f.email_field :email, autofocus: true, :class => "form-control" %>
         </div>
 
-        <div class="field">
+        <div class="field form-group">
           <%= f.label :contraseña %><br />
           <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
         </div>
         <br/>
         <% if devise_mapping.rememberable? -%>
-          <div class="field">
+          <div class="field form-group">
             <%= f.check_box :remember_me %>
-            <%= f.label :Recordar_mi_contraseña %>
+            <%= f.label :Recordar_mi_contraseña%>
           </div>
         <% end -%>
         <br/>
