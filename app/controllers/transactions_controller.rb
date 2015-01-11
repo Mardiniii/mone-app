@@ -22,18 +22,18 @@ class TransactionsController < ApplicationController
 		else
 			puts "Current User Role: #{current_user.role} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 			if User.find(@transaction.sender_id).role == 'estudiante'
-				puts 'estoy adentro'
-				if current_user.mone.quantity < @transaction.amount
-					redirect_to transactions_path
+				if current_user.mone.quantity < @transaction.mone_amount 
+					# Verificar que el estudiante tenga dinero para transferir
+					redirect_to new_transaction_path
 					return
-					#falta colocar alerta de que no tiene saldo
+					#FALTA COLOCAR ALERTA DE QUE NO TIENE SALDO DISPONIBLE
 				else
 					if @transaction.save
 						sender = current_user
-						saldo = sender.mone.quantity - (@transaction.amount / 1000)
+						saldo = sender.mone.quantity - @transaction.mone_amount
 						receiver = @transaction.user
 						sender.mone.update(quantity:saldo)
-						receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.amount / 1000))
+						receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.mone_amount))
 						redirect_to @transaction
 						return
 					else
@@ -68,6 +68,6 @@ class TransactionsController < ApplicationController
 
 	private
   		def transaction_params
-    		params.require(:transaction).permit(:email,:amount)
+    		params.require(:transaction).permit(:email,:mone_amount,:amount)
   		end
 end
