@@ -11,8 +11,8 @@
  * file per style scope.
  *
 *= require font-awesome
- *= require_tree .
- *= require_self
+*= require custom_bootstrap
+*= require_self
  */
 
 /*!
@@ -26,6 +26,19 @@ body {
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+span{
+    color: #fff
+}
+.loginpanel-navbar{
+    display: inline;
+    background-color: #fff
+}
+.margin-container{
+   margin-top: 100px;
+}
+#navbar-out-home{
+   background-color: rgba(52,48,49,0.9);
+}
 .text-muted {
     color: #777;
 }
@@ -134,6 +147,17 @@ fieldset[disabled] .btn-primary.active {
     background-color: #fff;
 }
 
+.btn-sm {
+    padding: 1px 1px;
+    border-color: #fed136;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #fed136;
+}
 .btn-xl {
     padding: 20px 40px;
     border-color: #fed136;
@@ -282,7 +306,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(header-bg.jpg);
+    background-image: url(http://www.on-time-accounting.com/wp-content/uploads/2014/01/Education_Chalkboard.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -315,7 +339,7 @@ header .intro-text .intro-heading {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 300px;
+        padding-top: 200px;
         padding-bottom: 200px;
     }
 
