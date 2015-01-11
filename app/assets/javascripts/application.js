@@ -16,8 +16,8 @@
 //= require bootstrap-sprockets
 //= require cbpAnimatedHeader
 //= require agency
-//= require morris.min.js
 //= require raphael.min.js
+//= require morris.min.js
 //= require morris-data
 
 $( document ).ready(function(){
