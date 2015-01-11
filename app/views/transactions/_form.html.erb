@@ -22,9 +22,7 @@
 		<%= f.label :Para_ %><br>
 		<%= email_field_tag 'email', nil, placeholder: 'Ingresa aqui email usuario a transferir. Ej: amigo@mail.com', class: 'form-control' %>
 	</div> 
-  <div class="actions form-group">
-<%= f.submit 'Transferir', :class => 'btn btn-primary btn-lg btn-warning' %>
+  <div class="actions form-group text-center">
+<%= f.submit 'Transferir', :class => 'btn btn-primary btn-lg btn-warning transferir' %>
 </div>
 <% end %>
-<%= link_to 'Mi Cuenta', dashboard_path, :class => "btn btn-info page-scroll" %>
-<%= link_to 'Nueva Recarga', recharge_path, :class => "btn btn-info" %>
