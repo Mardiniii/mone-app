@@ -18,5 +18,6 @@
 //= require agency
 //= require conversor.js
 //= require raphael.min.js
+//= require morris.min.js
 //= require morris-data
 //= require morris.min.js
