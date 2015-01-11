@@ -3,6 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+# api sms ==============
+  # require 'elibom'
+  # def sms
+  #  Elibom.configure(:user => 'neneriostb@gmail.com', :api_password => 'M819eUojSJ')
+  #  response = Elibom.send_message(:to => '3148236628', :text => 'Esta es una prueba puro mone')
+  #  puts response # para ver el resultado del llamado
+  # end
+
+#=====================
   layout :layout_by_resource
 
     def after_sign_in_path_for(resource)

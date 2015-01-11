@@ -19,9 +19,9 @@
         <div class="panel-heading">
           <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
         </div>
-        <div class="panel-body">
-          <div id="morris-area-chart"></div>
-        </div>
+
+          <%= content_tag :div, "", id: "transactions_chart",data: {transactions: transactions_chart_data} %>
+           <%= bar_chart @transactions_line %>
       </div>
     </div>
   </div>
