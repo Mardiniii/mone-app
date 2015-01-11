@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'recharge' => 'transactions#create_recharge'
   post 'save_recharge' => 'transactions#save_recharge'
   get 'dashboard_contributor' => 'dashboard#contributor'
-
+  get 'transactions' => 'dashboard#index'
+  post 'contact' => 'home#contact'
   root 'home#index'
   devise_for :users
   resources :transactions

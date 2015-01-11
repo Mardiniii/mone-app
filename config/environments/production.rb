@@ -52,7 +52,15 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => 'smtp.mailgun.org',
+    :port => 587,
+    :domain =>'sandboxdbc67bcf0d0849e2bc6e829f524b4c5d.mailgun.org',
+    :user_name => 'neneriostb@sandboxdbc67bcf0d0849e2bc6e829f524b4c5d.mailgun.org',
+    :password => 870526
+  }
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
