@@ -4,6 +4,8 @@ class TransactionsController < ApplicationController
 	def index
 		@user = current_user
 		@transactions = @user.transactions
+
+
 	end
 
 
@@ -39,6 +41,7 @@ class TransactionsController < ApplicationController
 						receiver = @transaction.user
 						sender.mone.update(quantity:saldo)
 						receiver.mone.update(quantity:(receiver.mone.quantity+@transaction.mone_amount))
+
 						redirect_to @transaction
 						return
 					else
@@ -64,7 +67,16 @@ class TransactionsController < ApplicationController
 	end
 
 	def show
+		require 'elibom'
   		@transaction = Transaction.find(params[:id])
+			response = Elibom.send_message(:to => current_user.cellphone, :text => "Felicitaciones! acabas de aportarle #{@transaction.mone_amount} Mone(s) al estudiante #{@transaction.user.name} para ayudarle alcanzar su futuro . fecha: #{@transaction.created_at}  ")
+			puts response
+			sender=User.find(@transaction.sender_id)
+      receiver=@transaction.user
+      mone= @transaction.mone_amount
+      UserMailer.transactions_sender(sender,mone,receiver).deliver
+			UserMailer.transactions_receiver(sender,mone,receiver).deliver
+
 	end
 
 	def create_recharge
@@ -87,11 +99,6 @@ class TransactionsController < ApplicationController
 	end
 
 	private
-	   def sms_students amount
-       Elibom.configure(:user => 'neneriostb@gmail.com', :api_password => 'M819eUojSJ')
-       response = Elibom.send_message(:to => '3148236628', :text => "tranferencia realizada por #{amount}")
-       puts amount
-   end
   		def transaction_params
     		params.require(:transaction).permit(:email,:mone_amount,:amount)
   		end
