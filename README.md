@@ -1,3 +1,5 @@
+![alt tag](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQUAQPTH1x00vcd55TpS5vaHdPgF8V8JTNxzliJKWKHFcZj_9db)
+
 ## What is MoNe?
 
 MoNe is the first **EDUCATION COIN** in the world. MoNe empowers parents in order to make **savings** for their kids future education. MoNe platform bring users the possibility the add coins to their account, contribute to other users account and control via a dashboard all their incomes and transactions. 
