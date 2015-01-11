@@ -13,8 +13,8 @@
         <td><%= link_to "#{transaction.id}", transaction %></td>
         <td><%= transaction.user.try(:name) %> <%= transaction.user.try(:last_name) %> </td>
         <td><%= User.find(transaction.sender_id).try(:name) %> <%= User.find(transaction.sender_id).try(:last_name) %></td>
-        <td><%= number_with_delimiter(transaction.mone_amount, :delimiter => ',') %></td>
-        <td><%= number_to_currency(@transaction.amount, precision: 3) %></td>
+        <td><%= number_with_delimiter(transaction.try(:mone_amount), :delimiter => ',') %></td>
+        <td><%= number_to_currency(@transaction.try(:amount), precision: 3) %></td>
         <td><%= transaction.created_at %></td>
       </tr>
   <% end %>
