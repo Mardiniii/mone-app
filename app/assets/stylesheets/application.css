@@ -10,16 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-*= require font-awesome
-*= require custom_bootstrap
-*= require_self
+ *= require font-awesome
+ *= require custom_bootstrap
+ *= require_tree .
+ *= require_self
  */
 
-/*!
- * Start Bootstrap - Agency Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
 body {
 		overflow-x: hidden;
@@ -687,8 +683,11 @@ section h3.section-subheading {
 
 .team-member p {
 		margin-top: 0;
+	}
 
-}
+.transferir {
+		padding-right: 135px;
+	}
 
 aside.clients img {
 		margin: 50px auto;
