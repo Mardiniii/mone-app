@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111041519) do
+ActiveRecord::Schema.define(version: 20150111190603) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150111041519) do
     t.integer  "age"
     t.string   "genre_id"
     t.integer  "mone_id"
+    t.string   "cellphone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
